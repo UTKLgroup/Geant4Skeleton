@@ -17,11 +17,12 @@ void LSDetectorConstruction::BuildMaterial() {
 }
 
 G4VPhysicalVolume * LSDetectorConstruction::Construct() {
+  BuildMaterial();
 
   // Check overlapping
   G4bool checkOverlaps = true;
 
-  // create world volume
+  // World volume
   worldBox = new G4Box("World", world_hx, world_hy, world_hz);
   worldLog = new G4LogicalVolume(worldBox, Air, "World");
   worldPhy = new G4PVPlacement(0, G4ThreeVector(), worldLog, "World", 0, false, 0, checkOverlaps);
