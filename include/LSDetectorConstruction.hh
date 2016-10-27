@@ -1,6 +1,9 @@
 #ifndef LSDetectorConstruction_h
 #define LSDetectorConstruction_h 1
 
+#include "LSSiPMSD.hh"
+
+#include "G4SDManager.hh"
 #include "G4VUserDetectorConstruction.hh"
 #include "G4RunManager.hh"
 #include "G4NistManager.hh"
@@ -12,10 +15,14 @@
 #include "G4SystemOfUnits.hh"
 #include "G4VisAttributes.hh"
 #include "G4Tubs.hh"
+#include "G4LogicalBorderSurface.hh"
+#include "G4OpticalSurface.hh"
 #include "globals.hh"
+#include "G4UserLimits.hh"
+#include "G4LogicalSkinSurface.hh"
 
 static const G4double inch = 2.54*cm;
-
+static const G4double dm = 10*cm;
 
 class G4VPhysicalVolume;
 class G4LogicalVolume;
@@ -65,13 +72,18 @@ private:
   G4LogicalVolume * larhouseLog;
   G4VPhysicalVolume * larhousePhy;
 
+  G4Tubs * larlidBox;
+  G4LogicalVolume * larlidLog;
+  G4VPhysicalVolume * larlidAPhy;
+  G4VPhysicalVolume * larlidBPhy;
+
   /**
    * MATERIALS
    */
   G4Material * fAir;
   G4Material * fLAr;
   G4Material * fAl;
-  G4Material * fBGO;
+  G4Material * fSiPMMat;
 
   /**
    * MATERIAL PROPERTY TABLE

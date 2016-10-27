@@ -1,7 +1,7 @@
 #ifndef LSPrimaryGeneratorAction_h
 #define LSPrimaryGeneratorAction_h 1
 
-#include "LSPrimaryGeneratorMessenger.hh"
+//#include "LSPrimaryGeneratorMessenger.hh"
 #include "RNGWrapper.hh"
 
 #include <vector>
@@ -46,7 +46,7 @@ class LSPrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
     G4ParticleGun* particleGun;
     CRYGenerator* gen;
     G4int InputState;
-    LSPrimaryGeneratorMessenger* gunMessenger;
+    //LSPrimaryGeneratorMessenger* gunMessenger;
 };
 
 #endif

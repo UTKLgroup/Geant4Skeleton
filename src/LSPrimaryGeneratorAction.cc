@@ -40,7 +40,7 @@ LSPrimaryGeneratorAction::LSPrimaryGeneratorAction(const char * inputfile) {
   particleTable = G4ParticleTable::GetParticleTable();
 
   // Create the messenger file
-  gunMessenger = new LSPrimaryGeneratorMessenger(this);
+  //gunMessenger = new LSPrimaryGeneratorMessenger(this);
 }
 
 LSPrimaryGeneratorAction::~LSPrimaryGeneratorAction() {
@@ -109,15 +109,16 @@ void LSPrimaryGeneratorAction::GeneratePrimaries(G4Event * anEvent) {
   gen->genEvent(vect);
 
   // ....debug output
+/*
   G4cout << "\nEvent=" << anEvent->GetEventID() << " "
          << "CRY generated nparticles=" << vect->size()
          << G4endl;
-
+*/
   for ( unsigned j = 0; j < vect->size(); j++) {
     particleName = CRYUtils::partName((*vect)[j]->id());
 
     // ....debug output
-
+/*
     G4cout << "  "          << particleName << " "
          << "charge="      << (*vect)[j]->charge() << " "
          << std::setprecision(4)
@@ -127,7 +128,7 @@ void LSPrimaryGeneratorAction::GeneratePrimaries(G4Event * anEvent) {
          << " " << "direction cosines "
          << G4ThreeVector((*vect)[j]->u(), (*vect)[j]->v(), (*vect)[j]->w())
          << " " << G4endl;
-
+*/
     particleGun->SetParticleDefinition(particleTable->FindParticle((*vect)[j]->PDGid()));
     particleGun->SetParticleEnergy((*vect)[j]->ke() * MeV);
     //particleGun->SetParticlePosition(G4ThreeVector((*vect)[j]->x() * m, (*vect)[j]->y() * m, (*vect)[j]->z() * m));

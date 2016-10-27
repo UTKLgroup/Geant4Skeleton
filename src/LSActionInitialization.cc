@@ -18,9 +18,9 @@ void LSActionInitialization::Build() const {
   LSTrackingAction* trackingAction = new LSTrackingAction();
   SetUserAction(trackingAction);
 
-  LSSteppingAction* steppingAction = new LSSteppingAction();
-  SetUserAction(steppingAction);
 */
+LSSteppingAction* steppingAction = new LSSteppingAction();
+SetUserAction(steppingAction);
 
 
   return;

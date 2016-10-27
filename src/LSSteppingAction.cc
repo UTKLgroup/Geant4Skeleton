@@ -21,12 +21,6 @@ void LSSteppingAction::UserSteppingAction(const G4Step* step) {
     if (step->GetPostStepPoint()->GetPhysicalVolume()->GetName() == "sipmAPhy") {
       G4cout << "Hit in SiPM A!" << G4endl;
     }
-    if (step->GetPostStepPoint()->GetPhysicalVolume()->GetName() == "sipmBPhy") {
-      G4cout << "Hit in SiPM B!" << G4endl;
-    }
-    if (step->GetPostStepPoint()->GetPhysicalVolume()->GetName() == "sipmCPhy") {
-      G4cout << "Hit in SiPM C!" << G4endl;
-    }
   }
 
 

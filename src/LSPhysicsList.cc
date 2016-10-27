@@ -8,13 +8,13 @@ LSPhysicsList::LSPhysicsList() : G4VModularPhysicsList() {
    */
   RegisterPhysics(new G4EmStandardPhysics());
 
-  G4DecayPhysics* decay = new G4DecayPhysics();
-  decay->SetVerboseLevel(0);
-  RegisterPhysics(decay);
+  //G4DecayPhysics* decay = new G4DecayPhysics();
+  //decay->SetVerboseLevel(0);
+  //RegisterPhysics(decay);
 
-  G4HadronElasticPhysicsHP* hepHP = new G4HadronElasticPhysicsHP();
-  hepHP->SetVerboseLevel(0);
-  RegisterPhysics(hepHP);
+  //G4HadronElasticPhysicsHP* hepHP = new G4HadronElasticPhysicsHP();
+  //hepHP->SetVerboseLevel(0);
+  //RegisterPhysics(hepHP);
 
 
   /**
