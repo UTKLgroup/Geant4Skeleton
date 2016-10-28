@@ -7,6 +7,6 @@ returnPions 0
 date 5-11-2016
 latitude 30
 altitude 0
-nParticlesMin 10
-nParticlesMax 200
+nParticlesMin 15
+nParticlesMax 20
 subboxLength 3

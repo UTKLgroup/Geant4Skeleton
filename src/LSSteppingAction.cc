@@ -19,7 +19,7 @@ void LSSteppingAction::UserSteppingAction(const G4Step* step) {
 
   if (theCurrentTrack->GetParticleDefinition() == G4OpticalPhoton::OpticalPhotonDefinition()) {
     if (step->GetPostStepPoint()->GetPhysicalVolume()->GetName() == "sipmAPhy") {
-      G4cout << "Hit in SiPM A!" << G4endl;
+      G4cout << step->GetPostStepPoint()->GetGlobalTime() << G4endl;
     }
   }
 

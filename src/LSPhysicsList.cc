@@ -34,7 +34,7 @@ LSPhysicsList::LSPhysicsList() : G4VModularPhysicsList() {
   //opticalPhysics->SetMaxNumPhotonsPerStep(10000);
   //opticalPhysics->SetMaxBetaChangePerStep(10.0);
   //opticalPhysics->SetTrackSecondariesFirst(kCerenkov, true);
-  //opticalPhysics->SetTrackSecondariesFirst(kScintillation, true);
+  opticalPhysics->SetTrackSecondariesFirst(kScintillation, false);
   RegisterPhysics(opticalPhysics);
 }
 

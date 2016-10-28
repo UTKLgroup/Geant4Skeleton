@@ -43,11 +43,11 @@ void LSDetectorConstruction::BuildMaterial() {
   fLAr_mt->AddProperty("RINDEX",        LAr_RIndEnergy, LAr_RIND,  LArRIndNum);
   fLAr_mt->AddProperty("ABSLENGTH",     LAr_AbsLEnergy, LAr_ABSL,  LArAbsLNum);
   //fLAr_mt->AddConstProperty("SCINTILLATIONYIELD", 24000./MeV);
-  fLAr_mt->AddConstProperty("SCINTILLATIONYIELD", 10000./MeV); // debug light yield
+  fLAr_mt->AddConstProperty("SCINTILLATIONYIELD", 1./MeV); // debug light yield
   fLAr_mt->AddConstProperty("RESOLUTIONSCALE", 1.0);
   fLAr_mt->AddConstProperty("FASTTIMECONSTANT", 6.*ns);
   fLAr_mt->AddConstProperty("SLOWTIMECONSTANT", 1590.*ns);
-  fLAr_mt->AddConstProperty("YIELDRATIO", 0.3);
+  fLAr_mt->AddConstProperty("YIELDRATIO", 0.5);
   fLAr->SetMaterialPropertiesTable(fLAr_mt);
   fLAr->GetIonisation()->SetBirksConstant(0.69*mm/MeV);
 
@@ -109,11 +109,12 @@ G4VPhysicalVolume * LSDetectorConstruction::Construct() {
   G4SDManager* SDman = G4SDManager::GetSDMpointer();
   SDman->AddNewDetector(sipmsd);
   sipmALog->SetSensitiveDetector(sipmsd);
+*/
 
   // World
   worldBox = new G4Box("WorldBox", world_hx/2., world_hy/2., world_hz/2.);
   worldLog = new G4LogicalVolume(worldBox, fAir, "WorldLog");
-*/
+
 
   // Placing Detectors
   G4VPhysicalVolume* sipmAPhy = new G4PVPlacement(0, G4ThreeVector(0, 0, -25 * inch), sipmALog, "sipmAPhy", larvolLog, false, 0, false);

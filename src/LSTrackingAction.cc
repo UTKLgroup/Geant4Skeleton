@@ -8,9 +8,9 @@ LSTrackingAction::~LSTrackingAction() {
 
 void LSTrackingAction::PreUserTrackingAction(const G4Track* track) {
 
-  trkID = track->GetTrackID();
-  G4cout << "--Track ID: " << trkID << G4endl;
-  G4cout << "--Particle  : " << track->GetParticleDefinition()->GetParticleName() << ". " << G4endl;
+  //trkID = track->GetTrackID();
+  //G4cout << "--Track ID: " << trkID << G4endl;
+  //G4cout << "--Particle  : " << track->GetParticleDefinition()->GetParticleName() << ". " << G4endl;
 
   //G4cout << "----ILength   : " << track->GetTrackLength()/(mm) << " (mm). " << G4endl;
   //G4cout << "----IMomentum : " << track->GetMomentum()/(keV) << " (keV). " << G4endl;
@@ -30,9 +30,12 @@ void LSTrackingAction::PostUserTrackingAction(const G4Track* track) {
   G4cout << "----FEnergy   : " << track->GetKineticEnergy()/keV << " (keV). " << G4endl;
 */
 
-/*
-  G4AnalysisManager *AnalysisMan = G4AnalysisManager::Instance();
-  if (track->GetParticleDefinition() == G4OpticalPhoton::OpticalPhotonDefinition()) {
+
+  //G4AnalysisManager *AnalysisMan = G4AnalysisManager::Instance();
+  G4double PrimaryParticleTime = -1;
+  //if (track->GetParentID() == 0) {
+  //  PrimaryParticleTime = track->GetGlobalTime();
+  //  G4cout << "Primary Track: " << track->GetTrackID() << ": \t" << PrimaryParticleTime << G4endl;
     //if ((track->GetCurrentStepNumber() == 0)&&(track->GetCreatorProcess()->GetProcessName() == "Scintillation")) {
     //if ((track->GetCurrentStepNumber() == 1)) {
       //track->GetMomentumDirection();
@@ -45,14 +48,20 @@ void LSTrackingAction::PostUserTrackingAction(const G4Track* track) {
       //G4cout << "--ParentID   : " << track->GetParentID() << G4endl;
       //G4cout << "--Step       : " << track->GetCurrentStepNumber()  << "."<< G4endl;
       //G4cout << "--ProperTime  : " << track->GetProperTime()/nanosecond  << " (ns)."<< G4endl;
-      AnalysisMan->FillH1(0, track->GetGlobalTime()/nanosecond);
+      //AnalysisMan->FillH1(0, track->GetGlobalTime()/nanosecond);
     //}
-  }
-*/
+  //}
+
+  //if (track->GetParticleDefinition() == G4OpticalPhoton::OpticalPhotonDefinition()) {
+  //  G4cout << "---- Parent Track: " << track->GetParentID() << G4endl;
+  //}
+
+  G4cout << "---- Track: " << track->GetTrackID() << ":\t" << track->GetParticleDefinition()->GetParticleName() << "\t Parent :\t" << track->GetParentID() << G4endl;
+
 
   //G4cout << "--FTrack ID: " << trkID << G4endl;
-  G4cout << G4endl;
-  G4cout << G4endl;
+  //G4cout << G4endl;
+  //G4cout << G4endl;
 
 
   return;
